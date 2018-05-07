@@ -1,4 +1,4 @@
-*/*secrets.y*
+secrets.yml
 **/.terraform/*
 
 # .tfstate files
