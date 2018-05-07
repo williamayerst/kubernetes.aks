@@ -1,0 +1,9 @@
+*/*secrets.y*
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
