@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+  creationTimestamp: 2018-05-14T09:06:23Z
+  labels:
+    app: traefik
+    chart: traefik-1.29.1
+    heritage: Tiller
+    release: traefik-int
+  name: traefik-int
+  namespace: kube-system
+  resourceVersion: "431509"
+  selfLink: /api/v1/namespaces/kube-system/services/traefik-int
+  uid: 13571535-5756-11e8-b226-0a58ac1f00ad
+spec:
+  clusterIP: 10.0.121.245
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: http
+    nodePort: 32409
+    port: 80
+    protocol: TCP
+    targetPort: http
+  - name: https
+    nodePort: 32725
+    port: 443
+    protocol: TCP
+    targetPort: httpn
+  selector:
+    app: traefik
+    release: traefik-int
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 104.214.228.237

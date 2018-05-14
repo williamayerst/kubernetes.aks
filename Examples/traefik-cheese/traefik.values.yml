@@ -1,0 +1,4 @@
+dashboard.enabled: true
+dashboard.domain: traefik.example.com
+rbac.enabled: true
+prometheus.enabled: true

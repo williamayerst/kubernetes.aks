@@ -1,0 +1,6 @@
+dashboard.enabled: true
+dashboard.domain: traefik-int.example.com
+rbac.enabled: true
+prometheus.enabled: true
+service.annotations:
+  service.beta.kubernetes.io/azure-load-balancer-internal: "true"

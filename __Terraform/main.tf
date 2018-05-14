@@ -1,13 +1,19 @@
-resource "azurerm_resource_group" "test" {
-  name     = "${var.environment-prefix}${var.service-prefix}"
-  location = "West Europe"
+resource "random_pet" "name" {
+  length = 1
+  prefix = "${var.environment-prefix}${var.service-prefix}"
 }
 
-resource "azurerm_kubernetes_cluster" "test" {
-  name                = "${azurerm_resource_group.test.name}clu"
-  location            = "${azurerm_resource_group.test.location}"
-  resource_group_name = "${azurerm_resource_group.test.name}"
-  dns_prefix          = "${azurerm_resource_group.test.name}agt"
+resource "azurerm_resource_group" "rg" {
+  name     = "${random_pet.name.id}"
+  location = "West Europe"
+  tags = "${var.tags}"
+} 
+
+resource "azurerm_kubernetes_cluster" "cluster" {
+  name                = "${azurerm_resource_group.rg.name}"
+  location            = "${azurerm_resource_group.rg.location}"
+  resource_group_name = "${azurerm_resource_group.rg.name}"
+  dns_prefix          = "${azurerm_resource_group.rg.name}agt"
 
   linux_profile {
     admin_username = "${var.node_username}"
@@ -30,8 +36,5 @@ resource "azurerm_kubernetes_cluster" "test" {
     client_secret = "${var.cluster_clientsecret}"
   }
 
-  tags {
-    Owner       = "wa"
-    Environment = "Development"
-  }
+  tags = "${var.tags}"
 }

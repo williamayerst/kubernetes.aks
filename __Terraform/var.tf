@@ -1,6 +1,6 @@
 variable "node_ssh-public-key" {
   description = "ssh-rsa XXXXXX format public key for logging into agent nodes"
-  default     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvHg1VQf7cOxVSSJuV1/v2ToewKe6eKcsCHRcRkiuGYaklT38hjdbgIOwBMrHMPKTP2e7NW0hpHWv7fm278hacXD7RPCshvFcos38GhlDJhrzGvBQ4/LzPmSSbBpWdBAxksibHTrJ82du8tznEqurtJJ8oLfhByffvVY2MbCekIn5Y+78ibztxUoeyLVS0b5xn76b8PO4rEbxXteyC8htuhm9YYAsnef32+kZ024umzyYB1/ADCmotSL5O8Tr1ttUXWJgh587g3qTwfrbCrL6cgSkoM1dMI6Fw5s/gep38IRH2eGsicWNBBB3QM2Ma0UY7rcVVTARKFPFBb1QOegup willa@DESKTOP-FE077PT"
+  default     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxe4NWYMdV9Hdyk5UrKBhK5UdBYUG8cjrXAfJVw8Ekdw7UtTfJNAGsUUyCuqmlCgSMHJNhjcWbpmuHwuDQ812K3Cz2IRgXNb0hYrebRQaalSYZiMAEHhzWZ6veluluQ70IJ2a0l9uX3YQ5iH0+g89kgoAzsSvOZRVURcRRqs6hphaQ3XLU9cabioS/vjxD4TIsWYR6GtUc5w/4NfQgald4V1rk9dGkXHp3JyD26eEJDdIgZ1jNqKcKtMQezzPZPonEG6abXxMB3a+tddSKHMs0+G0Y/EVzkShBD38/TFXjuhsW7g8QO6DGwnuTxpzCI7smwMxc8zmbhKszNOHZW/ZB"
 }
 
 variable "node_username" {
@@ -15,8 +15,20 @@ variable "service-prefix" {
 
 variable "environment-prefix" {
   description = "Tagging all objects with this prefix"
-  default     = "tst"
+  default     = "dev"
+}
+
+
+variable "tags" {
+  type = "map"
+  default = {
+    environment = "Development"
+    project = "MF-07"
+    deploymentOwner = "William Ayerst"
+  }
 }
 
 variable "cluster_clientid" {}
 variable "cluster_clientsecret" {}
+
+

@@ -1,0 +1,3 @@
+# Internal Traefik
+
+I can't seem to get Traefik helm deployment to respect the annotation map for `service.annotations` value, which is required for Azure to provision an internal-only loadbalancer. The solution for this was to let Helm deploy the release as normal, then go back export the service, edit it, and then delete/reapply to force the LoadBalancer object to update. See 'traefik-internal-set' for what was pushed.

@@ -1,4 +1,4 @@
-secrets.yml
+secrets.tfvars
 **/.terraform/*
 
 # .tfstate files

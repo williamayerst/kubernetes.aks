@@ -14,7 +14,7 @@ If this is not in place, most things will still work but helm will not be able t
 
 ### Deploying
 
-Traefik can be deployed via helm using ``helm install --name traefik-test stable/traefik --namespace kube-system --set dashboard.enabled=true --set rbac.enabled=true` 
+Traefik can be deployed via helm using `helm install --name traefik-test stable/traefik --namespace kube-system --set dashboard.enabled=true --set rbac.enabled=true` 
 
 *Ensure that the dashboard and RBAC is enabled in a values.yaml file, or via the command line deployment of the service (see above)*
 
