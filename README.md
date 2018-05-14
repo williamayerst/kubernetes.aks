@@ -29,6 +29,6 @@ The platform engineers who are responsible for this deployment should have at le
 ## Gotchas
 AKS will have RBAC enabled by default - this means that any failures from Helm charts or deployments should be investigated first in the context of authorisation. Specifically, `helm` requires either a service account created ahead of time, or to specify the usage of `default` - and `traefik` must be deployed after one has created a `cluster-admin` role, for the deployment's `rbac.enabled=true` setting to function properly.
 
-Additionally, `HEAPSTER` will not work properly unless the cluster role binding for the Heapster service account is configured.
+Additionally, `HEAPSTER` will not work properly unless the cluster role binding for the Heapster service account is configured and the Metrics Server (`https://github.com/kubernetes-incubator/metrics-server`) is installed onto the cluster.
 
 `az account set -s $(az account list --query "[0].id")`
